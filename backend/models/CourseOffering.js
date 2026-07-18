@@ -83,8 +83,9 @@ lecNum: {
     },
 
     finalExamSchedule: {
-      date: Date,
-      startTime: String
+      date: Number,
+      startTime: String,
+      place: String,
     },
 
     enrolledCount: {

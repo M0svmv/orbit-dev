@@ -43,6 +43,8 @@ app.use('/api/academic-requests', require('./routes/academicRequests.route'));
 
 app.use('/api/control', require('./routes/controlMember.route'));
 
+app.use('/api/final-exams', require('./routes/finalExams.route'));
+
 
 
 module.exports = app;

@@ -13,7 +13,7 @@ router.post('/',authMiddleware, roleCheckMiddleware('coordinator'), courseOfferi
 router.post('/list',authMiddleware, roleCheckMiddleware('coordinator'), courseOfferingController.createCourseOfferings);
 
 // Get all course offerings
-router.get('/',authMiddleware, roleCheckMiddleware('coordinator', 'admin'), courseOfferingController.getAllCourseOfferings);
+router.get('/', courseOfferingController.getAllCourseOfferings);
 
 // Get a course offering by ID
 router.get('/:id',authMiddleware, roleCheckMiddleware('coordinator', 'admin'), courseOfferingController.getCourseOfferingById);
