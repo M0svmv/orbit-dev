@@ -1,0 +1,15 @@
+module.exports = {
+  CREDITS_LIMITS: {
+    STANDARD_CREDITS: 18,
+    LOW_CREDITS: 14,
+    HIGH_CREDITS: 21,
+    OVERLOAD_CREDITS: 24,
+    SUMMER_LAST_CREDITS: 9,
+    SUMMER_NEW_CREDITS: 9
+  },
+    GPA_THRESHOLDS: {
+        LOW: 2.0,
+        HIGH: 3.0
+    }
+
+};

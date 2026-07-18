@@ -1,0 +1,594 @@
+/* ============ Design tokens ============ */
+.orbit-login-page {
+    --navy-900: #0a1730;
+    --navy-800: #0f2044;
+    --navy-700: #16305e;
+    --gold: #d9a441;
+    --gold-soft: #e6c07a;
+    --blue-accent: #3660e0;
+    --blue-accent-soft: #eaf0ff;
+    --ink: #10182c;
+    --muted: #6b7385;
+    --border: #e4e7ee;
+    --page-bg: #eef1f7;
+    --card-bg: #ffffff;
+    --error: #d64545;
+
+    height: 100dvh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--page-bg);
+    padding: 32px 20px;
+    box-sizing: border-box;
+    font-family: "Segoe UI", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.orbit-login-page *,
+.orbit-login-page *::before,
+.orbit-login-page *::after {
+    box-sizing: border-box;
+}
+
+/* ============ Card shell ============ */
+.orbit-login-card {
+    position: relative;
+
+    width: 80dvw;
+    height: 90dvh;
+    display: flex;
+
+    background: var(--card-bg);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px -20px rgba(10, 23, 48, 0.35);
+}
+
+/* ============ Left panel ============ */
+.orbit-login-left {
+    position: relative;
+    background: radial-gradient(120% 140% at 15% 10%, #16305e 0%, #0f2044 45%, #0a1730 100%);
+    color: #fff;
+    padding: 48px 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    width: 50%;
+}
+
+.orbit-login-rings {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.orbit-login-rings .orbit-login-ring {
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+}
+
+.orbit-login-ring-1 {
+    width: 480px;
+    height: 480px;
+    top: -60px;
+    right: -140px;
+}
+
+.orbit-login-ring-2 {
+    width: 640px;
+    height: 640px;
+    top: -140px;
+    right: -220px;
+    border-color: rgba(255, 255, 255, 0.07);
+}
+
+.orbit-login-planet {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.orbit-login-planet-blue {
+    width: 22px;
+    height: 22px;
+    top: 14%;
+    right: 18%;
+    background: radial-gradient(circle at 35% 30%, #7db4ff, #2f63c9 70%);
+    box-shadow: 0 0 18px rgba(70, 130, 230, 0.6);
+}
+
+.orbit-login-planet-gold {
+    width: 16px;
+    height: 16px;
+    top: 40%;
+    right: 6%;
+    background: radial-gradient(circle at 35% 30%, var(--gold-soft), var(--gold) 75%);
+    box-shadow: 0 0 14px rgba(217, 164, 65, 0.6);
+}
+
+.orbit-login-stars {
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.5) 0, transparent 60%),
+        radial-gradient(1px 1px at 25% 60%, rgba(255,255,255,0.4) 0, transparent 60%),
+        radial-gradient(1px 1px at 40% 15%, rgba(255,255,255,0.35) 0, transparent 60%),
+        radial-gradient(1px 1px at 60% 75%, rgba(255,255,255,0.4) 0, transparent 60%),
+        radial-gradient(1px 1px at 80% 35%, rgba(255,255,255,0.3) 0, transparent 60%),
+        radial-gradient(1px 1px at 12% 80%, rgba(255,255,255,0.3) 0, transparent 60%);
+    opacity: 0.9;
+}
+
+.orbit-login-left-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 6px;
+}
+
+.orbit-login-logo {
+    width: 148px;
+    height: 148px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: #fff;
+    padding: 10px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    margin-bottom: 18px;
+}
+
+.orbit-login-left-content > h2 {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+.orbit-login-left-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.orbit-login-brand-title {
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 6px;
+}
+
+.orbit-login-brand-subtitle {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gold-soft);
+    margin-top: 4px;
+}
+
+.orbit-login-left-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.orbit-login-left-footer h3 {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.orbit-login-tagline {
+    color: var(--gold-soft);
+    font-size: 15px;
+    margin: 0 0 24px 0;
+}
+
+.orbit-login-empower-badge {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 12px 16px;
+    text-align: left;
+}
+
+.orbit-login-empower-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--gold-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.orbit-login-empower-text {
+    font-size: 13.5px;
+    line-height: 1.4;
+    color: #eef1f7;
+}
+
+.orbit-login-campus-silhouette {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 90px;
+    pointer-events: none;
+}
+
+.orbit-login-campus-dark {
+    background-image: linear-gradient(to top, rgba(217, 164, 65, 0.18), transparent 70%);
+}
+
+.orbit-login-campus-dark::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(80% 100% at 50% 120%, rgba(255, 255, 255, 0.08), transparent 70%);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+}
+
+/* ============ Right panel ============ */
+.orbit-login-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 56px;
+    background: #ffffff;
+    position: relative;
+    width: 50%;
+}
+
+.orbit-login-form {
+    width: 100%;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+}
+
+.orbit-login-welcome-header {
+    text-align: center;
+    margin-bottom: 26px;
+    width: 100%;
+}
+
+.orbit-login-welcome-header h1 {
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--ink);
+    margin: 0 0 8px 0;
+}
+
+.orbit-login-welcome-header p {
+    color: var(--muted);
+    font-size: 14px;
+    margin: 0;
+    width: 100%;
+}
+
+/* Role tabs */
+.orbit-login-role-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    background: #f2f4f9;
+    border-radius: 12px;
+    padding: 5px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.orbit-login-role-tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 12px;
+    border-radius: 9px;
+    cursor: pointer;
+    transition: background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.orbit-login-role-tab.orbit-login-role-tab--active {
+    background: #fff;
+    color: var(--blue-accent);
+    box-shadow: 0 4px 12px rgba(54, 96, 224, 0.18);
+}
+
+.orbit-login-role-tab:not(.orbit-login-role-tab--active):hover {
+    color: var(--ink);
+}
+
+/* Inputs */
+.orbit-login-input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 14px;
+    background: #fbfbfd;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.orbit-login-input-group:focus-within {
+    border-color: var(--blue-accent);
+    box-shadow: 0 0 0 3px var(--blue-accent-soft);
+    background: #fff;
+}
+
+.orbit-login-input-icon {
+    margin-left: 14px;
+    margin-right: 14px;
+    color: var(--muted);
+    flex-shrink: 0;
+}
+
+.orbit-login-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    padding: 13px 12px;
+    font-size: 14.5px;
+    color: var(--ink);
+    min-width: 0;
+}
+
+.orbit-login-input::placeholder {
+    color: #a3a8b8;
+}
+
+.orbit-login-eye-btn {
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    cursor: pointer;
+}
+
+.orbit-login-eye-btn:hover {
+    color: var(--ink);
+}
+
+/* Row: remember me / forgot password */
+.orbit-login-form-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2px 0 18px 0;
+    font-size: 13.5px;
+}
+
+.orbit-login-remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+    cursor: pointer;
+    user-select: none;
+}
+
+.orbit-login-remember-me input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--blue-accent);
+    cursor: pointer;
+}
+
+.orbit-login-forgot-link {
+    color: var(--blue-accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.orbit-login-forgot-link:hover {
+    text-decoration: underline;
+}
+
+/* Error */
+.orbit-login-error {
+    color: var(--error);
+    background: #fdecec;
+    border: 1px solid #f6c8c8;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 13px;
+    margin: 0 0 14px 0;
+    text-align: center;
+}
+
+/* Buttons */
+.orbit-login-btn-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    border: none;
+    border-radius: 12px;
+    padding: 13px 16px;
+    background: linear-gradient(180deg, #16305e, #0a1730);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+    box-shadow: 0 10px 20px -8px rgba(10, 23, 48, 0.5);
+}
+
+.orbit-login-btn-primary:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 24px -8px rgba(10, 23, 48, 0.55);
+}
+
+.orbit-login-btn-primary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.orbit-login-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 18px 0;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.orbit-login-divider::before,
+.orbit-login-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+.orbit-login-btn-sso {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    border: 1px solid var(--blue-accent);
+    border-radius: 12px;
+    padding: 12px 16px;
+    background: #fff;
+    color: var(--blue-accent);
+    font-size: 14.5px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.orbit-login-btn-sso:hover {
+    background: var(--blue-accent-soft);
+}
+
+/* Building silhouette strip on the right/bottom, echoing the mockup */
+.orbit-login-campus-light {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 50%;
+    height: 96px;
+    pointer-events: none;
+    background-image: linear-gradient(to top, rgba(54, 96, 224, 0.06), transparent 80%);
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 900px) {
+
+    .orbit-login-card {
+        display: flex;
+        flex-direction: column;
+        height: 97dvh;
+
+        width: 100%;
+    }
+
+    .orbit-login-left {
+        padding: 36px 28px 44px;
+        width: 100%;
+    }
+
+    .orbit-login-logo {
+        width: 108px;
+        height: 108px;
+        margin-bottom: 12px;
+    }
+
+    .orbit-login-brand-title {
+        font-size: 24px;
+    }
+
+    .orbit-login-left-footer h3 {
+        font-size: 21px;
+    }
+
+    .orbit-login-ring-1 {
+        width: 320px;
+        height: 320px;
+    }
+
+    .orbit-login-ring-2 {
+        width: 440px;
+        height: 440px;
+    }
+
+    .orbit-login-right {
+        padding: 40px 28px 48px;
+        width: 100%;
+    }
+
+    .orbit-login-campus-light {
+        left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .orbit-login-page {
+        padding: 16px;
+    }
+
+    .orbit-login-card {
+        border-radius: 18px;
+    }
+
+    .orbit-login-left {
+        padding: 28px 20px 36px;
+    }
+
+    .orbit-login-logo {
+        width: 84px;
+        height: 84px;
+    }
+
+    .orbit-login-empower-badge {
+        padding: 10px 12px;
+    }
+
+    .orbit-login-empower-text {
+        font-size: 12.5px;
+    }
+
+    .orbit-login-welcome-header h1 {
+        font-size: 25px;
+    }
+
+    .orbit-login-right {
+        padding: 32px 20px 40px;
+    }
+
+    .orbit-login-form-row {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+}
+
+@media (max-height: 670px) and (max-width: 400px) {
+    .orbit-login-left {
+        padding: 20px 16px 28px;
+    }
+}
