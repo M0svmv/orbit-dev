@@ -24,7 +24,6 @@ import {
     FileText,
     Layers,
     Clock,
-    // أيقونات جديدة لتحسين الشكل
     GitPullRequestDraft,
     MonitorCheck,
     GanttChart,
@@ -121,6 +120,11 @@ export const menuConfig = {
             name: "Requests",
             path: "/staff/coordinator/coo-Requests",
             icon: <GitPullRequestDraft size={iconSize} />
+        },
+        {
+            name: "Exam Schedule",
+            path: "/staff/coordinator/ExamScheduleManager",
+            icon: <CalendarRange size={iconSize} />
         },
     ],
 

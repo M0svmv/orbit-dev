@@ -24,6 +24,8 @@ import UnassignedStudentsPage from "./pages/coordinator pages/UnassignedStudents
 import CooEnrollmentPage from "./pages/coordinator pages/CooEnrollmentPage";
 import ScheduleManager from "./pages/coordinator pages/ScheduleManager";
 import CoordinatorAcademicRequests from "./pages/coordinator pages/CoordinatorAcademicRequests"
+import ExamScheduleManager from "./pages/coordinator pages/Examschedulemanager";
+
 
 import AdviseStudents from "./pages/academicAdvisor/AdviseStudents";
 import AdvisingAnnouncements from "./pages/academicAdvisor/AdvisingAnnouncements";
@@ -117,6 +119,8 @@ function App() {
           <Route path=":role/coordinator/enroll/:studentId" element={<CooEnrollmentPage />} />
           <Route path=":role/ScheduleManager" element={<ScheduleManager />} />
           <Route path=":role/coo-Requests" element={<CoordinatorAcademicRequests />} />
+          <Route path=":role/ExamScheduleManager" element={<ExamScheduleManager />} />
+
 
           {/* _______________ */}
           <Route path=":role/advise-students" element={<AdviseStudents />} />

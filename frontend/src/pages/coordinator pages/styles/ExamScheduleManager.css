@@ -1,0 +1,492 @@
+/* ==========================================================================
+   ExamScheduleManager.css
+   نفس منطق ScheduleManager.css (نفس الـ tokens والـ shared classes زي
+   management-container / btn-1 / btn-2 / modal-overlay / sidebar...)
+   عشان يفضل شكل الجدولين موحّد. الكلاسات الجديدة بادئة بـ exam- عشان
+   ميحصلش تعارض لو الملفين اتحملوا مع بعض في نفس الصفحة.
+   ========================================================================== */
+
+/* ====== LAYOUT ====== */
+.exam-schedule-container {
+    display: flex;
+    gap: 10px;
+    height: 100%;
+    overflow: hidden !important;
+}
+
+.exam-schedule-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-height: 0;
+}
+
+/* ====== HEADER (shared) ====== */
+.management-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.management-header h2 {
+    font-size: 1.4rem;
+}
+
+.header-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.header-top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between !important;
+    margin: 0 !important;
+}
+
+.head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* ====== EXAM TABLE WRAPPER ====== */
+.exam-table-wrapper {
+    flex: 1;
+    overflow: auto;
+    background: var(--card, #fff);
+    border: 1px solid var(--border, #e2e8f0);
+    border-radius: var(--radius, 12px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: block;
+}
+
+.exam-schedule-table {
+    width: 100%;
+    table-layout: fixed;
+    min-width: 600px;
+    border-collapse: separate;
+    border-spacing: 5px;
+}
+
+/* ====== TABLE HEADER (shared look) ====== */
+.exam-schedule-table th {
+    background: var(--primary-blue-color, #2563eb);
+    color: #f8fafc;
+    border: none;
+    border-radius: var(--radius, 12px);
+    text-align: center;
+    padding: 10px 6px;
+}
+
+.period-label {
+    font-weight: 600;
+    color: #f8fafc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.time-range {
+    font-size: 0.75rem;
+    color: #cbd5e1;
+}
+
+/* ====== DAY / DATE COLUMN ====== */
+.day-name {
+    vertical-align: middle !important;
+    font-weight: 600;
+    font-size: 14px;
+    background: #e2e8f0;
+    color: var(--text, #1e293b);
+    text-align: center;
+    border: 1px solid #d2d2d2 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sticky-col {
+    position: sticky;
+    left: 0px;
+    z-index: 2;
+    background: #e2e8f0;
+    border: 1px solid var(--border, #e2e8f0);
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.sticky-row {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.corner-header {
+    z-index: 30 !important;
+}
+
+/* ====== CELLS ====== */
+.exam-schedule-table td.slot {
+    background: #f8fafc;
+    border: 1px dashed var(--border, #e2e8f0);
+    border-radius: var(--radius, 12px);
+    padding: 8px;
+    transition: background 0.2s;
+    height: 160px;
+    min-width: 0;
+    vertical-align: top;
+    overflow: hidden;
+}
+
+.exam-schedule-table td.slot:hover {
+    border-color: var(--primary, #2563eb);
+    background: #eef5ff;
+}
+
+.slot.drop-hover {
+    background: #dbeafe;
+    border: 2px solid var(--primary, #2563eb);
+}
+
+/* ====== COURSES STACK INSIDE A SLOT ====== */
+.exam-courses-stack {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    overflow-y: auto;
+}
+
+/* ====== EXAM COURSE CARD ====== */
+.exam-uniform-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #3b82f6;
+    border-radius: 8px;
+    padding: 8px 10px;
+    transition: box-shadow 0.2s;
+    box-sizing: border-box;
+    overflow: hidden;
+    word-break: break-word;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.exam-uniform-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.exam-course-name-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary-blue-color, #1e293b);
+    margin: 0 0 4px 0;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: block;
+}
+
+.exam-course-details {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.exam-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #64748b;
+    font-size: 10px;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.exam-reg-badge {
+    background: #f1f5f9;
+    color: #475569;
+    padding: 1px 6px;
+    border-radius: 10px;
+    font-size: 9px;
+    font-weight: 600;
+}
+
+/* ====== FIX: placeholder ميغيرش حجم الخلية ====== */
+[data-rfd-placeholder-context-id] {
+    display: none !important;
+}
+
+/* ====== SIDEBAR (shared with ScheduleManager) ====== */
+.schedule-sidebar {
+    width: 300px;
+    background: white;
+    margin-right: -3rem;
+    margin-top: -1.75rem;
+    margin-bottom: -1.75rem;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.05);
+    z-index: 10;
+    overflow: hidden !important;
+}
+
+.schedule-sidebar.collapsed {
+    display: none;
+}
+
+.available-text {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin: 0;
+}
+
+.course-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.s_sidebar-header {
+    padding: 0 24px;
+    margin-top: 15px;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.sidebar-search-wrapper {
+    position: relative;
+    margin: 15px 0 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.search-icon-inside {
+    position: absolute;
+    left: 12px;
+    color: #888;
+    pointer-events: none;
+}
+
+.catalog-search-input {
+    width: 100%;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    padding: 10px 10px 10px 35px;
+    color: #333;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.catalog-search-input:focus {
+    outline: none;
+    border-color: #3a86ff;
+    box-shadow: 0 0 0 2px rgba(58, 134, 255, 0.2);
+}
+
+.close-sidebar-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #667085;
+}
+
+/* ====== MODAL (shared) ====== */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: var(--card, #fff);
+    padding: 20px;
+    border-radius: var(--radius, 12px);
+    width: 350px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title-with-icon {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.period-modal-wide {
+    width: 90% !important;
+    max-width: 640px !important;
+    border: 1px solid #aaa;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.config-top-bar {
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #aaa;
+}
+
+.input-group-row {
+    display: flex;
+    gap: 15px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+    min-width: 160px;
+}
+
+.input-field label {
+    font-size: 0.8rem;
+    color: #000;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.input-field input {
+    border: 1px solid #aaa;
+    padding: 10px;
+    border-radius: 6px;
+    color: #000;
+}
+
+.modal-footer {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #aaa;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.btn-cancel {
+    background: transparent;
+    color: #888;
+    border: 1px solid #444;
+    padding: 10px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* ====== BUTTONS (shared) ====== */
+.btn-1,
+.btn-2 {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-1 {
+    background: var(--primary, #2563eb);
+    color: #fff;
+}
+
+.btn-1:hover {
+    filter: brightness(0.92);
+}
+
+.btn-1:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn-2 {
+    background: #f1f5f9;
+    color: #334155;
+}
+
+.btn-2:hover {
+    background: #e2e8f0;
+}
+
+/* ====== SCROLLBAR ====== */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border, #e2e8f0);
+    border-radius: 6px;
+}
+
+/* ====== MOBILE WARNING (shared) ====== */
+.mobile-responsive-warning {
+    display: none;
+    flex-direction: column;
+}
+
+.warning-content {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    text-align: center;
+    border: 1px solid #edf2f7;
+}
+
+.warning-content h2 {
+    color: #1a202c;
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.warning-content p {
+    color: #4a5568;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.warning-content .highlight {
+    color: #e53e3e;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+.warning-content .btn-2 {
+    margin-top: 25px;
+    padding: 12px 30px;
+    cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+    .mobile-responsive-warning {
+        display: flex;
+    }
+}
